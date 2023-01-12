@@ -1,0 +1,9 @@
+#include <limits.h>
+#include <stdio.h>
+
+int main(){
+	printf("INT_MIN : %d\n", INT_MIN); // -2147483647
+	printf("INT_MAX : %d\n", INT_MAX); // 2147483647
+	printf("CHAR_MIN : %d\n", CHAR_MIN); // -128
+	printf("CHAR_MAX : %d\n", CHAR_MAX); // 127
+}
