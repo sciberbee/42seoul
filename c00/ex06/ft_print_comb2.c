@@ -6,14 +6,27 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:36:36 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/12 13:57:18 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/12 16:46:18 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+void	_98_99(void);
 void	w2_2(int no1, int no2);
 void	ft_print_comb2(void);
+
+void	_98_99(void)
+{
+	char	_98_99[5];
+
+	_98_99[0] = '9';
+	_98_99[1] = '8';
+	_98_99[2] = ' ';
+	_98_99[3] = '9';
+	_98_99[4] = '9';
+	write(1, _98_99, 5);
+}
 
 void	w2_2(int no1, int no2)
 {
@@ -31,16 +44,19 @@ void	w2_2(int no1, int no2)
 
 void	ft_print_comb2(void)
 {
-	int	no1;
-	int	no2;
+	short	no1;
+	short	no2;
 
 	no1 = 00;
 	no2 = 01;
-	while (no1 < no2)
+	while (no1 < 100)
 	{
-		w2_2(no1, no2);
+		if (no1 < no2)
+		{
+			w2_2(no1, no2);
+		}
 		no2++;
-		if (no2 == 99)
+		if (no2 == 100)
 		{
 			no1++;
 			no2 = no1 + 1;
@@ -50,6 +66,7 @@ void	ft_print_comb2(void)
 			break ;
 		}
 	}
+	_98_99();
 }
 
 int	main(void)
