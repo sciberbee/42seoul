@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:54:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/12 12:10:52 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/13 09:39:03 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	process_negative(int is_negative)
 void	print_nb(int nb)
 {
 	char	stack[10];
-	long	i;
-	long	is_negative;
+	short	i;
+	short	is_negative;
 
 	is_negative = 0;
 	i = 0;
