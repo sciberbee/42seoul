@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:54:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/13 09:39:03 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/14 16:52:06 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,67 +14,59 @@
 #include <stdio.h>
 
 void	ft_putnbr(int nb);
-char	itoc(int no);
-void	process_negative(int is_negative);
+void	process_negative(void);
+void	process_int_min(void);
 void	print_nb(int nb);
 
-int	main(void)
+void	process_negative(void)
 {
-	ft_putnbr(2147483647);
-	return (0);
+	write(1, "-", 1);
 }
 
-char	itoc(int no)
+void	process_int_min(void)
 {
-	char	numbers[10];
+	int		int_max;
+	int		i;
+	char	string_int_min[10];
 
-	numbers[0] = '0';
-	numbers[1] = '1';
-	numbers[2] = '2';
-	numbers[3] = '3';
-	numbers[4] = '4';
-	numbers[5] = '5';
-	numbers[6] = '6';
-	numbers[7] = '7';
-	numbers[8] = '8';
-	numbers[9] = '9';
-	return (numbers[no]);
-}
-
-void	process_negative(int is_negative)
-{
-	char	minus;
-
-	if (is_negative)
+	int_max = 2147483647;
+	i = 9;
+	while (i >= 0)
 	{
-		minus = '-';
-		write(1, &minus, 1);
+		string_int_min[i] = (int_max % 10) + '0';
+		int_max = int_max / 10;
+		i--;
 	}
+	string_int_min[9] = '8';
+	process_negative();
+	write(1, string_int_min, 10);
 }
 
 void	print_nb(int nb)
 {
 	char	stack[10];
-	short	i;
-	short	is_negative;
+	int		i;
 
-	is_negative = 0;
-	i = 0;
+	if (nb == -2147483648)
+	{
+		process_int_min();
+		return ;
+	}
 	if (nb < 0)
 	{
-		is_negative = 1;
+		process_negative();
 		nb = -nb;
 	}
+	i = 0;
 	while (nb)
 	{
-		stack[i++] = itoc(nb % 10);
+		stack[i++] = '0' + (nb % 10);
 		nb = nb / 10;
 	}
-	process_negative(is_negative);
-	while (i - 1 >= 0)
+	i--;
+	while (i >= 0)
 	{
-		write(1, stack + (i - 1), 1);
-		i--;
+		write(1, stack + (i--), 1);
 	}
 }
 
@@ -91,4 +83,10 @@ void	ft_putnbr(int nb)
 	{
 		print_nb(nb);
 	}
+}
+
+int	main(void)
+{
+	ft_putnbr(-2147483648);
+	return (0);
 }

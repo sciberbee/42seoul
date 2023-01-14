@@ -1,3 +1,47 @@
+...Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+### OpenFrameworks+VisualStudio ###
+# ignore generated binaries
+# but not the data folder
+
+/bin/*
+!/bin/data/
+
+# general
+...*.mode1v3
+*.mode2v3
+# XCode 4
+xcuserdata
+*.xcworkspace
+
+# Code::Blocks
+*.depend
+*.layout
+
+# Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.aps
+ipch/
+
+# Eclipse
+.metadata
+local.properties...
+...studiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
+
+### VisualStudioCode ###
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json...
+
+### 42 ###
 .DS_Store
-.vscode/
 out

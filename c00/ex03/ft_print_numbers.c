@@ -6,19 +6,13 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:29:31 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/11 13:30:45 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/14 16:07:48 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	ft_print_numbers(void);
-
-int	main(void)
-{
-	ft_print_numbers();
-	return (0);
-}
 
 void	ft_print_numbers(void)
 {

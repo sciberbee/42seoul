@@ -2,14 +2,14 @@
 #include <string.h>
 
 #include "ex00/ft_strcpy.c"
-// #include "ex01/ft_strncpy.c"
-// #include "ex02/ft_str_is_alpha.c"
-// #include "ex03/ft_str_is_numeric.c"
-// #include "ex04/ft_str_is_lowercase.c"
-// #include "ex05/ft_str_is_uppercase.c"
-// #include "ex06/ft_str_is_printable.c"
-// #include "ex07/ft_strupcase.c"
-// #include "ex08/ft_strlowcase.c"
+#include "ex01/ft_strncpy.c"
+#include "ex02/ft_str_is_alpha.c"
+#include "ex03/ft_str_is_numeric.c"
+#include "ex04/ft_str_is_lowercase.c"
+#include "ex05/ft_str_is_uppercase.c"
+#include "ex06/ft_str_is_printable.c"
+#include "ex07/ft_strupcase.c"
+#include "ex08/ft_strlowcase.c"
 // #include "ex09/ft_strcapitalize.c"
 // #include "ex10/ft_strlcpy.c"
 // #include "ex11/ft_putstr_non_printable.c"
@@ -26,7 +26,7 @@ int main(void)
 	printf("%s : copied by strcpy\n", strcpy(dest00, src0));
     printf("%s : 세 개 모두 같으면 답\n", src0);
 
-/*    printf("\n----ex01----\n");
+    printf("\n----ex01----\n");
     char dest1[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	char dest11[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	char src1[] = "TC making is hard";
@@ -37,7 +37,7 @@ int main(void)
 
     printf("\n----ex02----\n");
 	char str2[] = "Made by";
-	char str22[] = "Jungyeki";
+	char str22[] = "abcdefg";
 	char str222[] = "";
     printf("%d : 0 나오면 답\n", ft_str_is_alpha(str2));
     printf("%d : 1 나오면 답\n", ft_str_is_alpha(str22));
@@ -84,7 +84,7 @@ int main(void)
 	char str8[] = "STRlowCASE";
 	printf("Before : %s\n", str8);
 	printf(" After : %s\n모두 소문자로 바뀌었으면 답\n", ft_strlowcase(str8));
-
+/*
 	printf("\n----ex09----\n");
 	char str9[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 	char str99[] = "juugYEki dRINks a CUP of 'coFFee' !";

@@ -6,19 +6,13 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:31:36 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/11 14:31:49 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/14 16:07:54 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	ft_is_negative(int n);
-
-int	main(void)
-{
-	ft_is_negative(0);
-	return (0);
-}
 
 void	ft_is_negative(int n)
 {

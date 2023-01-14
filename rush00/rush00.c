@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkim2 <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:09:00 by taehkim2          #+#    #+#             */
-/*   Updated: 2023/01/14 14:01:39 by taehkim2         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:58:08 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	rush(int x, int y)
 		{
 			if ((x == a || x == 1) && (y == b || y == 1))
 				ft_putchar('o');
-			else if ((y < b && y > 1) && (x < a && x > 1))
+			else if ((x < a && x > 1) && (y < b && y > 1))
 				ft_putchar(' ');
-			else if ((y < b && y > 1) && (x == a || x == 1))
+			else if ((x == a || x == 1) && (y < b && y > 1))
 				ft_putchar('|');
 			else if ((x < a || x > 1) && (y == b || y == 1))
 				ft_putchar('-');
