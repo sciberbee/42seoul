@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 21:41:50 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/15 16:36:43 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/15 14:33:53 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/15 14:41:27 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
+unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
+	char	*ret_dest;
+	int		copied_size;
 
-	i = 0;
-	while (i < n)
+	ret_dest = dest;
+	copied_size = 0;
+	while (*src && size >= 1)
 	{
-		*(dest + i) = *(src + i);
-		i++;
+		*dest = *src;
+		dest++;
+		src++;
+		size--;
+		copied_size++;
 	}
-	return (dest);
+	*dest = '\0';
+	return (copied_size);
 }

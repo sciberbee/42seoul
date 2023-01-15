@@ -10,9 +10,9 @@
 #include "ex06/ft_str_is_printable.c"
 #include "ex07/ft_strupcase.c"
 #include "ex08/ft_strlowcase.c"
-// #include "ex09/ft_strcapitalize.c"
-// #include "ex10/ft_strlcpy.c"
-// #include "ex11/ft_putstr_non_printable.c"
+#include "ex09/ft_strcapitalize.c"
+#include "ex10/ft_strlcpy.c"
+#include "ex11/ft_putstr_non_printable.c"
 // #include "ex12/ft_print_memory.c"
 
 int main(void)
@@ -71,7 +71,7 @@ int main(void)
 	char str6[] = "	";
 	char str66[] = "printable!!";
 	char str666[] = "";
-	printf("%d : 0 나오면 답\n", ft_str_is_printable(str6));
+	printf("%d : 1 나오면 답\n", ft_str_is_printable(str6));
 	printf("%d : 1 나오면 답\n", ft_str_is_printable(str66));
 	printf("%d : 1 나오면 답 : empty\n", ft_str_is_printable(str666));
 
@@ -84,7 +84,7 @@ int main(void)
 	char str8[] = "STRlowCASE";
 	printf("Before : %s\n", str8);
 	printf(" After : %s\n모두 소문자로 바뀌었으면 답\n", ft_strlowcase(str8));
-/*
+
 	printf("\n----ex09----\n");
 	char str9[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 	char str99[] = "juugYEki dRINks a CUP of 'coFFee' !";
@@ -92,7 +92,7 @@ int main(void)
 	printf(" After : %s\n    답 : Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un\n", ft_strcapitalize(str9));
 	printf("Before : %s\n", str99);
 	printf(" After : %s\n    답 : Juugyeki Drinks A Cup Of 'Coffee' !\n", ft_strcapitalize(str99));
-	
+
 	printf("\n----ex10----\n");
 	char dest10[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	char src10[] = "jungyeki needs caffeine.";
@@ -110,7 +110,7 @@ int main(void)
 	ft_putstr_non_printable(&str1111);
 	printf("   이게\n");
 	printf("\\ff   같으면 정답 : test extended ascii\n");
-
+/*
 	printf("\n----ex12----\n");
 	char str12[] = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\n\tlol.lol\n";
 	ft_print_memory((void *)str12, sizeof(str12));
