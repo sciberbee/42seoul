@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 10:52:58 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 13:08:49 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/17 18:38:34 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/17 19:06:58 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_strcmp(char *s1, char *s2);
 
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
+	int	subt;
+
+	subt = 0;
+	while (!subt && s1 && s2)
+	{
+		subt = (*s1) - (*s2);
+		s1++;
+		s2++;
+	}
+	return (subt);
 }

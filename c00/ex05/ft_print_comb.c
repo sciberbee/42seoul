@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:35:54 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/14 16:08:02 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/17 20:41:05 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	w3(int digit_3)
 	char_3[2] = '0' + (digit_3 % 10);
 	char_3[3] = ',';
 	char_3[4] = ' ';
-	write(1, char_3, 5);
+	write(1, &char_3, 5);
 }
 
 void	ft_print_comb(void)
@@ -44,5 +44,5 @@ void	ft_print_comb(void)
 		}
 		no++;
 	}
-	write(1, &_789, 3);
+	write(1, _789, 3);
 }

@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 10:52:58 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 13:08:49 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/17 19:31:06 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/17 19:54:33 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	write(1, &c, 1);
+	char	buf[100000];
+	int		idx;
+
+	idx = 0;
+	while ((*dest) && size)
+	{
+		buf[idx] = (*dest);
+		dest++;
+		idx++;
+	}
+	while ((*src) && size)
+	{
+		buf[idx] = (*src);
+		src++;
+		idx++;
+	}
 }

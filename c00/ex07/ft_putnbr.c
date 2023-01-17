@@ -6,12 +6,11 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:54:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/14 16:52:06 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/17 13:08:25 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putnbr(int nb);
 void	process_negative(void);
@@ -83,10 +82,4 @@ void	ft_putnbr(int nb)
 	{
 		print_nb(nb);
 	}
-}
-
-int	main(void)
-{
-	ft_putnbr(-2147483648);
-	return (0);
 }

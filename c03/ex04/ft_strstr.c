@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 10:52:58 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 13:08:49 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/17 19:28:56 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/17 19:48:25 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+char	*ft_strstr(char *str, char *to_find);
 
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
+char	*ft_strstr(char *str, char *to_find)
 {
-	write(1, &c, 1);
+	char	*str_idx;
+	char	*to_find_idx;
+	while (*dest)
+	{
+		while ((*dest) == (*src))
+		{
+			
+		}
+	}
+	return ((char *)0);
 }

@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 10:52:58 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 13:08:49 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/17 19:23:52 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/17 19:25:56 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
 
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	write(1, &c, 1);
+	char	*return_dest;
+
+	return_dest = dest;
+	while (*dest)
+	{
+		dest++;
+	}
+	while (*src && nb)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		nb--;
+	}
+	*dest = '\0';
+	return (return_dest);
 }

@@ -13,7 +13,7 @@
 #include "ex09/ft_strcapitalize.c"
 #include "ex10/ft_strlcpy.c"
 #include "ex11/ft_putstr_non_printable.c"
-// #include "ex12/ft_print_memory.c"
+#include "ex12/ft_print_memory.c"
 
 int main(void)
 {
@@ -110,7 +110,7 @@ int main(void)
 	ft_putstr_non_printable(&str1111);
 	printf("   이게\n");
 	printf("\\ff   같으면 정답 : test extended ascii\n");
-/*
+
 	printf("\n----ex12----\n");
 	char str12[] = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\n\tlol.lol\n";
 	ft_print_memory((void *)str12, sizeof(str12));
@@ -127,6 +127,5 @@ int main(void)
 	printf("\n12번은 wocheon님과 chelilee님 께서 도와주셨습니다.\n");
 
     printf("\nC02 푸시느라 고생하셨습니다.\n\n");
-*/
     return(0);
 }
