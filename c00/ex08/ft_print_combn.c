@@ -14,13 +14,42 @@
 #include <stdio.h>
 
 void	ft_print_combn(int n);
+void	combination(int count, int start, int n, char	*buf);
+
+void	combination(int count, int start, int n, char	*buf)
+{
+	int		i;
+
+	if (count == n)
+	{
+		if (buf[0] == 10 - n + '0')
+		{
+			write(1, buf, n);
+		}
+		else
+		{
+			write(1, buf, n);
+			write(1, ", ", 2);
+		}
+		return ;
+	}
+	i = start;
+	while (i <= 9)
+	{
+		buf[count] = '0' + i;
+		combination(count + 1, i + 1, n, buf);
+		i++;
+	}
+}
 
 void	ft_print_combn(int n)
 {
 	char	buf[10];
 
+	combination(0, 0, n, buf);
 }
 
+#include <unistd.h>
 int	main(void)
 {
 	ft_print_combn(3);
