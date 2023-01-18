@@ -45,4 +45,5 @@ local.properties...
 ### 42 ###
 .DS_Store
 out
+test
 *.dSYM

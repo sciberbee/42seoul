@@ -6,21 +6,15 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:54:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/18 19:51:27 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/18 22:08:15 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	ft_putnbr(int nb);
-void	process_negative(void);
 void	process_int_min(void);
 void	print_nb(int nb);
-
-void	process_negative(void)
-{
-	write(1, "-", 1);
-}
 
 void	process_int_min(void)
 {
@@ -37,7 +31,7 @@ void	process_int_min(void)
 		i--;
 	}
 	string_int_min[9] = '8';
-	process_negative();
+	write(1, "-", 1);
 	write(1, string_int_min, 10);
 }
 
@@ -53,7 +47,7 @@ void	print_nb(int nb)
 	}
 	if (nb < 0)
 	{
-		process_negative();
+		write(1, "-", 1);
 		nb = -nb;
 	}
 	i = 0;
@@ -71,13 +65,8 @@ void	print_nb(int nb)
 
 void	ft_putnbr(int nb)
 {
-	char	char_zero;
-
-	char_zero = '0';
 	if (nb == 0)
-	{
-		write(1, &char_zero, 1);
-	}
+		write(1, "0", 1);
 	else
 	{
 		print_nb(nb);
