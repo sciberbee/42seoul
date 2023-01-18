@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:49:05 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 18:37:47 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/18 13:33:28 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	*ft_print_memory(void *addr, unsigned int size);
 void	ft_print_pointer(void *addr);
 void	ft_print_put_2byte(void *addr);
+void	fill_g_hex_table(void);
 void	ft_put_16byte_textbuf(void *addr, char *textbuf);
 
 char	g_hex_table[16];
@@ -105,23 +106,23 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	void	*ret_addr;
 	char	textbuf[16];
 	int		loop_var;
-	int		i;
 
 	fill_g_hex_table();
 	ret_addr = addr;
-	while (size > 1)
+	while (size >= 2)
 	{
 		ft_print_pointer(addr);
 		ft_put_16byte_textbuf(addr, textbuf);
-		loop_var = 8;
-		while (size > 1 && loop_var > 0)
+		loop_var = 0;
+		while (size >= 2 && loop_var < 8)
 		{
 			ft_print_put_2byte(addr);
 			addr = addr + 2;
 			size = size - 2;
-			loop_var--;
+			loop_var++;
 		}
-		write(1, textbuf, 16);
+		write(1, "                                   ", 5 * (8 - loop_var));
+		write(1, textbuf, 2 * loop_var);
 		write(1, "\n", 1);
 	}
 	return (ret_addr);
