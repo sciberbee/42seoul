@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:33:53 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/15 14:41:27 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 11:35:26 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@ unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
 unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char	*ret_dest;
-	int		copied_size;
+	int				src_len;
+	unsigned int	i;
 
-	ret_dest = dest;
-	copied_size = 0;
-	while (*src && size >= 1)
+	src_len = 0;
+	while (src[src_len])
 	{
-		*dest = *src;
-		dest++;
-		src++;
-		size--;
-		copied_size++;
+		src_len++;
 	}
-	*dest = '\0';
-	return (copied_size);
+	i = 0;
+	while (i + 1 < size && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (size)
+	{
+		dest[i] = '\0';
+	}
+	return (src_len);
 }

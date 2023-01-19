@@ -6,19 +6,13 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:49:05 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/18 13:33:28 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 12:51:59 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 void	*ft_print_memory(void *addr, unsigned int size);
-void	ft_print_pointer(void *addr);
-void	ft_print_put_2byte(void *addr);
-void	fill_g_hex_table(void);
-void	ft_put_16byte_textbuf(void *addr, char *textbuf);
-
-char	g_hex_table[16];
 
 void	ft_print_pointer(void *addr)
 {
@@ -30,7 +24,7 @@ void	ft_print_pointer(void *addr)
 	ptr = (long long) addr;
 	while (i < 16)
 	{
-		hex_string[15 - i] = g_hex_table[ptr % 16];
+		hex_string[15 - i] = "0123456789abcdef"[ptr % 16];
 		ptr /= 16;
 		i++;
 	}
@@ -38,48 +32,7 @@ void	ft_print_pointer(void *addr)
 	write(1, ": ", 2);
 }
 
-void	ft_print_put_2byte(void *addr)
-{
-	char	byte;
-	char	buf[5];
-
-	byte = *(char *)addr;
-	buf[1] = g_hex_table[byte % 16];
-	byte /= 16;
-	buf[0] = g_hex_table[byte % 16];
-	byte /= 16;
-	addr++;
-	byte = *(char *)addr;
-	buf[3] = g_hex_table[byte % 16];
-	byte /= 16;
-	buf[2] = g_hex_table[byte % 16];
-	byte /= 16;
-	buf[4] = ' ';
-	write(1, buf, 5);
-	addr++;
-}
-
-void	fill_g_hex_table(void)
-{
-	g_hex_table[0] = '0';
-	g_hex_table[1] = '1';
-	g_hex_table[2] = '2';
-	g_hex_table[3] = '3';
-	g_hex_table[4] = '4';
-	g_hex_table[5] = '5';
-	g_hex_table[6] = '6';
-	g_hex_table[7] = '7';
-	g_hex_table[8] = '8';
-	g_hex_table[9] = '9';
-	g_hex_table[10] = 'a';
-	g_hex_table[11] = 'b';
-	g_hex_table[12] = 'c';
-	g_hex_table[13] = 'd';
-	g_hex_table[14] = 'e';
-	g_hex_table[15] = 'f';
-}
-
-void	ft_put_16byte_textbuf(void *addr, char *textbuf)
+void	ft_put_16byte_text(void *addr, char *textbuf)
 {
 	int		i;
 	char	*charaddr;
@@ -101,28 +54,56 @@ void	ft_put_16byte_textbuf(void *addr, char *textbuf)
 	}
 }
 
+void	*ft_print_nbyte_hex(void *addr, int n)
+{
+	unsigned char	byte;
+	int				i;
+
+	i = 0;
+	while ((i < (n / 2)) && (i < 8))
+	{
+		byte = *(char *)(addr++);
+		write(1, &"0123456789abcdef"[byte / 16], 1);
+		write(1, &"0123456789abcdef"[byte % 16], 1);
+		byte = *(char *)(addr++);
+		write(1, &"0123456789abcdef"[byte / 16], 1);
+		write(1, &"0123456789abcdef"[byte % 16], 1);
+		write(1, " ", 1);
+		i++;
+	}
+	if (n % 2 != 0)
+	{
+		byte = *(char *)(addr++);
+		write(1, &"0123456789abcdef"[byte / 16], 1);
+		write(1, &"0123456789abcdef"[byte % 16], 1);
+	}
+	return (addr);
+}
+
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	void	*ret_addr;
 	char	textbuf[16];
-	int		loop_var;
 
-	fill_g_hex_table();
 	ret_addr = addr;
-	while (size >= 2)
+	while (size >= 1)
 	{
 		ft_print_pointer(addr);
-		ft_put_16byte_textbuf(addr, textbuf);
-		loop_var = 0;
-		while (size >= 2 && loop_var < 8)
+		ft_put_16byte_text(addr, textbuf);
+		if (size >= 16)
 		{
-			ft_print_put_2byte(addr);
-			addr = addr + 2;
-			size = size - 2;
-			loop_var++;
+			addr = ft_print_nbyte_hex(addr, 16);
+			write(1, textbuf, 16);
+			size -= 16;
 		}
-		write(1, "                                   ", 5 * (8 - loop_var));
-		write(1, textbuf, 2 * loop_var);
+		else
+		{
+			addr = ft_print_nbyte_hex(addr, size);
+			write(1, "                                                  ",
+				5 * ((16 - size) / 2) + 3 * (size % 2));
+			write(1, textbuf, size);
+			size = 0;
+		}
 		write(1, "\n", 1);
 	}
 	return (ret_addr);

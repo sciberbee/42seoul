@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:42:49 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 18:35:38 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 12:26:35 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,19 @@ int	ft_char_is_printable(char *ch)
 
 void	ft_convert_npchar_to_hex_string(unsigned char npchar, char *hex_string)
 {
-	char	hex_table[16];
 	int		i;
 	int		charint;
 
 	i = 0;
 	charint = npchar;
-	while (i < 10)
-	{
-		hex_table[i] = '0' + i;
-		i++;
-	}
-	i = 0;
-	while (i < 6)
-	{
-		hex_table[10 + i] = 'a' + i;
-		i++;
-	}
 	hex_string[0] = '\\';
-	hex_string[1] = hex_table[charint / 16];
-	hex_string[2] = hex_table[charint % 16];
-	hex_string[3] = '\0';
+	hex_string[1] = "0123456789abcdef"[charint / 16];
+	hex_string[2] = "0123456789abcdef"[charint % 16];
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	char	hex_string[4];
+	char	hex_string[3];
 
 	while (*str)
 	{
