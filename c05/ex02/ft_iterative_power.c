@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 17:19:10 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 17:22:46 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_iterative_power(int nb, int power);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_iterative_power(int nb, int power)
 {
-	unsigned int	i;
+	int	result;
 
-	if (n == 0)
+	if (power < 0)
 		return (0);
-	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
+	if (nb == 0 && power == 0)
+		return (1);
+	if (nb == 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	result = 1;
+	while (power > 0)
 	{
-		s1++;
-		s2++;
-		i++;
+		result *= nb;
+		power--;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (result);
 }
-//대체 뭐가 틀린거야!!!

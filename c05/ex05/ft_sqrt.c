@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 17:32:47 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 17:50:25 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_sqrt(int nb);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_sqrt(int nb)
 {
-	unsigned int	i;
+	int	i;
 
-	if (n == 0)
-		return (0);
 	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
+	while ((i * i) <= nb)
 	{
-		s1++;
-		s2++;
+		if ((i * i) == nb)
+			return (i);
 		i++;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (0);
 }
-//대체 뭐가 틀린거야!!!

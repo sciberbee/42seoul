@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 17:58:19 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 18:00:44 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_find_next_prime(int nb);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_is_prime_ex07(int nb)
 {
-	unsigned int	i;
+	int	i;
 
-	if (n == 0)
+	if (nb < 0)
 		return (0);
-	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
+	if (nb == 0)
+		return (0);
+	if (nb == 1)
+		return (0);
+	if (nb == 2)
+		return (1);
+	i = 2;
+	while (i < nb)
 	{
-		s1++;
-		s2++;
+		if (nb % i == 0)
+			return (0);
 		i++;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (1);
 }
-//대체 뭐가 틀린거야!!!
+
+int	ft_find_next_prime(int nb)
+{
+	while (1)
+	{
+		if (ft_is_prime_ex07(nb))
+			return (nb);
+		else
+			nb++;
+	}
+}

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 17:14:42 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 17:15:39 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_recursive_factorial(int nb);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_recursive_factorial(int nb)
 {
-	unsigned int	i;
-
-	if (n == 0)
+	if (nb < 0)
 		return (0);
-	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
-	{
-		s1++;
-		s2++;
-		i++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	if (nb == 0 || nb == 1 || nb == 2)
+		return (nb);
+	return (nb * ft_recursive_factorial(nb - 1));
 }
-//대체 뭐가 틀린거야!!!

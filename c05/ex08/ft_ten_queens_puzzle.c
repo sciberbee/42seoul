@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 18:01:24 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 22:52:04 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_ten_queens_puzzle(void);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int queens()
+int	ft_ten_queens_puzzle(void)
 {
-	unsigned int	i;
-
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
-	{
-		s1++;
-		s2++;
-		i++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+//재귀는 설계 끝내고 짜면 백발백중
+//설계하기전에 코딩하면 손 낭비
 }
-//대체 뭐가 틀린거야!!!

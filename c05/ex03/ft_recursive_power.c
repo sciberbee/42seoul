@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/19 17:23:28 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 17:24:57 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_recursive_power(int nb, int power);
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_recursive_power(int nb, int power)
 {
-	unsigned int	i;
-
-	if (n == 0)
+	if (power < 0)
 		return (0);
-	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
-	{
-		s1++;
-		s2++;
-		i++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	if (nb == 0 && power == 0)
+		return (1);
+	if (nb == 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	return (nb * ft_recursive_power(nb, power - 1));
 }
-//대체 뭐가 틀린거야!!!
