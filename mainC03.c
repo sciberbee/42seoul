@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:55:06 by jaeyojun          #+#    #+#             */
-/*   Updated: 2023/01/18 20:10:00 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:41:54 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_strlen(char *str);
 
 int main()
 {
+	
 	printf("made by <jaeyojun>\n");
 	printf("made by <jaeyojun>\n");
 	printf("made by <jaeyojun>\n");
@@ -140,7 +141,7 @@ int main()
 	char	our_7[10] = {'H', 'E', 'L', 'L', 'O'};
 	char	our_8[10] = {'H', 'E', 'L', 200, 'O'};
 	unsigned int qwc = 4;
-	printf("----------case4-------------\n");
+	printf("----------case6-------------\n");
 	printf("input\n");
 	printf("ft_strncmp: %u\n", ft_strncmp(our_5, our_6, qwc));
 	printf("answer\n");
@@ -355,7 +356,7 @@ int main()
 	printf("ft_strstr : %s\n", ft_strstr(e9, e10));
 	printf("answer\n");
 	printf("strstr : %s\n", strstr(e11, e12));
-	
+
 	//ex05
 	printf("\n");
 	printf("---------------ex05--------------\n");
@@ -366,7 +367,7 @@ int main()
 
 	printf("----------case1-------------\n");
 	printf("intput\n");
-    printf("ft_strlcat count: %u\n", ft_strlcat(str3, str4, 10));
+    printf("ft_strlcat count: %u\n", ft_strlcat(str3, str4, 40));
 	printf("dest :%s\n", str3);
 	
 	printf("------------------------\n");
@@ -374,7 +375,7 @@ int main()
     char src[7] = "Hell";
 	
 	printf("ouput\n");
-    printf("strlcat count: %lu\n", strlcat(dest, src, 10));
+    printf("strlcat count: %lu\n", strlcat(dest, src, 40));
 	printf("dest :%s\n", dest);
 
 	printf("\n");
@@ -383,7 +384,7 @@ int main()
     char ee1[7] = "Hell";
 	
 	printf("iutput\n");
-    printf("ft_strlcat count: %u\n", ft_strlcat(qw1, ee1,2 ));
+    printf("ft_strlcat count: %u\n", ft_strlcat(qw1, ee1, 9));
 	printf("dest :%s\n", qw1);
 
 	printf("------------------------\n");
@@ -392,6 +393,6 @@ int main()
     char ee[7] = "Hell";
 	
 	printf("output\n");
-    printf("strlcat count: %lu\n", strlcat(qw, ee, 2));
+    printf("strlcat count: %lu\n", strlcat(qw, ee, 9));
 	printf("dest :%s\n", qw);
 }

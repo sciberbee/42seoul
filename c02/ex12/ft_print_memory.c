@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:49:05 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 12:51:59 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:09:01 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	*ft_print_nbyte_hex(void *addr, int n)
 	i = 0;
 	while ((i < (n / 2)) && (i < 8))
 	{
-		byte = *(char *)(addr++);
+		byte = *(unsigned char *)(addr++);
 		write(1, &"0123456789abcdef"[byte / 16], 1);
 		write(1, &"0123456789abcdef"[byte % 16], 1);
-		byte = *(char *)(addr++);
+		byte = *(unsigned char *)(addr++);
 		write(1, &"0123456789abcdef"[byte / 16], 1);
 		write(1, &"0123456789abcdef"[byte % 16], 1);
 		write(1, " ", 1);

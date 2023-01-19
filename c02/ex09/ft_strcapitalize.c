@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:56:16 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 11:04:31 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:11:53 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ char	*ft_strcapitalize_driver(char *str, int found_word)
 
 char	*ft_strcapitalize(char *str)
 {
-	int		found_word;
-
 	str = ft_strlowcase_driver(str);
-	found_word = 0;
-	str = ft_strcapitalize_driver(str, found_word);
+	str = ft_strcapitalize_driver(str, 0);
 	return (str);
 }

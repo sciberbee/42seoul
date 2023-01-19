@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/17 19:07:09 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:31:00 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n);
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	subt;
+	unsigned int	i;
 
-	subt = 0;
-	while (!subt && s1 && s2 && n)
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (*s1 && (*s1 == *s2) && (i < n))
 	{
-		subt = (*s1) - (*s2);
 		s1++;
 		s2++;
-		n--;
+		i++;
 	}
-	return (subt);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
