@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:48:15 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 23:05:59 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/20 18:41:00 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	if (n == 0)
 		return (0);
 	i = 0;
-	while (*s1 && (*s1 == *s2) && (i < n))
+	while (*s1 && *s2 && (*s1 == *s2) && (i < n - 1))
 	{
 		s1++;
 		s2++;
@@ -27,4 +27,3 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
-//대체 뭐가 틀린거야!!!
