@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:17:08 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/21 22:25:53 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/21 22:33:56 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	print_board(int	*board)
 	int		i;
 	char	ch;
 
-	//write(1, "print_board\n", 13);
 	i = 0;
 	while (i < 16)
 	{
 		ch = '0' + board[i];
 		write(1, &ch, 1);
 		i++;
-		if (i % 4 == 0)
+		if (i % 4 != 0)
+			write(1, " ", 1);
+		else
 			write(1, "\n", 1);
 	}
-	write(1, "----------\n", 12);
 }
 
 int	check_col(int *board, int *clues, int col_no)
@@ -41,7 +41,6 @@ int	check_col(int *board, int *clues, int col_no)
 	idx = col_no;
 	seen1 = 1;
 	curr = board[idx];
-	//write(1, "check_col\n", 11);
 	while (idx <= 12 + col_no)
 	{
 		if (board[idx] > curr)
@@ -76,7 +75,6 @@ int	check_row(int *board, int *clues, int row_no)
 	idx = 4 * row_no;
 	seen1 = 1;
 	curr = board[idx];
-	//write(1, "check_row\n", 11);
 	while (idx <= 3 + 4 * row_no)
 	{
 		if (board[idx] > curr)
@@ -105,7 +103,6 @@ int	no_duplicate(int i, int *board)
 {
 	int	k;
 
-	//write(1, "no_duplicate\n", 14);
 	if (i == -1)
 		return (1);
 	if (i == 0)
@@ -126,7 +123,6 @@ int	check_all_clue(int *board, int *clues)
 {
 	int	i;
 
-	//write(1, "check_all_clue\n", 16);
 	i = 0;
 	while (i < 4)
 	{
@@ -143,7 +139,6 @@ void	skyscrapers(int i, int *board, int *clues)
 {
 	int	j;
 
-	//write(1, "skyscrapers\n", 13);
 	if (no_duplicate(i, board))
 	{
 		if (i == 15)
@@ -175,12 +170,13 @@ void	ft_four_skyscrapers_puzzle(int *clues)
 	skyscrapers(-1, board, clues);
 }
 
+//Requires very thorough input verification.
 int	main(int argc, char **argv)
 {
 	int	i;
 	int	clues[16];
 
-	if (argc != 2) //process other error cases.
+	if (argc != 2)
 	{
 		write(1, "Error\n", 6);
 		return (0);
