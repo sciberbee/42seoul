@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:17:08 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/21 21:18:15 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/21 22:25:53 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	print_board(int	*board)
 	int		i;
 	char	ch;
 
+	//write(1, "print_board\n", 13);
 	i = 0;
-	while (i < 15)
+	while (i < 16)
 	{
 		ch = '0' + board[i];
 		write(1, &ch, 1);
@@ -27,6 +28,7 @@ void	print_board(int	*board)
 		if (i % 4 == 0)
 			write(1, "\n", 1);
 	}
+	write(1, "----------\n", 12);
 }
 
 int	check_col(int *board, int *clues, int col_no)
@@ -39,6 +41,7 @@ int	check_col(int *board, int *clues, int col_no)
 	idx = col_no;
 	seen1 = 1;
 	curr = board[idx];
+	//write(1, "check_col\n", 11);
 	while (idx <= 12 + col_no)
 	{
 		if (board[idx] > curr)
@@ -49,6 +52,7 @@ int	check_col(int *board, int *clues, int col_no)
 		idx += 4;
 	}
 	seen2 = 1;
+	idx -= 4;
 	curr = board[idx];
 	while (idx >= col_no)
 	{
@@ -72,6 +76,7 @@ int	check_row(int *board, int *clues, int row_no)
 	idx = 4 * row_no;
 	seen1 = 1;
 	curr = board[idx];
+	//write(1, "check_row\n", 11);
 	while (idx <= 3 + 4 * row_no)
 	{
 		if (board[idx] > curr)
@@ -82,6 +87,7 @@ int	check_row(int *board, int *clues, int row_no)
 		idx += 1;
 	}
 	seen2 = 1;
+	idx -= 1;
 	curr = board[idx];
 	while (idx >= 4 * row_no)
 	{
@@ -99,14 +105,19 @@ int	no_duplicate(int i, int *board)
 {
 	int	k;
 
-	k = 0;
-	while (k < 16)
+	//write(1, "no_duplicate\n", 14);
+	if (i == -1)
+		return (1);
+	if (i == 0)
+		return (1);
+	k = i - 1;
+	while (k >= 0)
 	{
 		if ((k / 4 == i / 4) && (board[k] == board[i]))
 			return (0);
 		if ((k % 4 == i % 4) && (board[k] == board[i]))
 			return (0);
-		k++;
+		k--;
 	}
 	return (1);
 }
@@ -115,6 +126,7 @@ int	check_all_clue(int *board, int *clues)
 {
 	int	i;
 
+	//write(1, "check_all_clue\n", 16);
 	i = 0;
 	while (i < 4)
 	{
@@ -131,6 +143,7 @@ void	skyscrapers(int i, int *board, int *clues)
 {
 	int	j;
 
+	//write(1, "skyscrapers\n", 13);
 	if (no_duplicate(i, board))
 	{
 		if (i == 15)
@@ -138,15 +151,15 @@ void	skyscrapers(int i, int *board, int *clues)
 			if (check_all_clue(board, clues))
 				print_board(board);
 		}
-	}
-	else
-	{
-		j = 1;
-		while (j <= 4)
+		else
 		{
-			board[i + 1] = j;
-			skyscrapers(i + 1, board, clues);
-			j++;
+			j = 1;
+			while (j <= 4)
+			{
+				board[i + 1] = j;
+				skyscrapers(i + 1, board, clues);
+				j++;
+			}
 		}
 	}
 }
@@ -175,7 +188,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < 16)
 	{
-		clues[i] = argv[1][2 * i] - '0';
+		clues[i] = (int)(argv[1][2 * i] - '0');
 		i++;
 	}
 	ft_four_skyscrapers_puzzle(clues);
