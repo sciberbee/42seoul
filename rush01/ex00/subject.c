@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:17:08 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/21 22:33:56 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/22 00:24:09 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,8 +182,21 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	i = 0;
+	while (argv[1][i])
+		i++;
+	if (i != 31)
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	i = 0;
 	while (i < 16)
 	{
+		if (argv[1][2 * i] > '4' || argv[1][2 * i] < '1')
+		{
+			write(1, "Error\n", 6);
+			return (0);
+		}
 		clues[i] = (int)(argv[1][2 * i] - '0');
 		i++;
 	}
