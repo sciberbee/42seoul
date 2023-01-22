@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:58:19 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/19 18:00:44 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/22 17:53:36 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@ int	ft_is_prime_ex07(int nb)
 {
 	int	i;
 
-	if (nb < 0)
-		return (0);
-	if (nb == 0)
-		return (0);
-	if (nb == 1)
+	if (nb <= 1)
 		return (0);
 	if (nb == 2)
 		return (1);
-	i = 2;
-	while (i < nb)
+	if ((nb % 2 == 0) || (nb % 3 == 0))
+		return (0);
+	i = 5;
+	while ((i * i) <= nb)
 	{
 		if (nb % i == 0)
 			return (0);
@@ -36,11 +34,13 @@ int	ft_is_prime_ex07(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	while (1)
+	if (nb <= 1)
+		return (2);
+	if (2147483629 < nb && nb <= 2147483647)
+		return (2147483647);
+	while (!ft_is_prime_ex07(nb) && nb < 2147483647)
 	{
-		if (ft_is_prime_ex07(nb))
-			return (nb);
-		else
-			nb++;
+		nb++;
 	}
+	return (nb);
 }

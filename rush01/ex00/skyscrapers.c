@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 21:17:08 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/22 13:27:41 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/22 17:55:13 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,10 @@ void	ft_four_skyscrapers_puzzle(char *clue_string)
 		clues[i] = (int)(clue_string[2 * i] - '0');
 		i++;
 	}
-	i = 0;
-	while (i < 16)
-		board[i++] = 0;
 	*printed = 0;
 	skyscrapers(-1, board, clues, printed);
+	if (!(*printed))
+		write(1, "Error\n", 6);
 }
 
 //Requires very thorough input verification.
