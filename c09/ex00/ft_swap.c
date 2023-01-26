@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 18:14:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 17:17:05 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/14 16:55:33 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/14 16:56:30 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+void	ft_swap(int *a, int *b);
 
-int	*ft_range(int min, int max);
-
-int	*ft_range(int min, int max)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
-	int	*arr;
+	int	temp;
 
-	if (min >= max)
-		return (0);
-	arr = malloc(sizeof(*arr) * (max - min));
-	i = 0;
-	while (i < (max - min))
-	{
-		arr[i] = min + i;
-		i++;
-	}
-	return (arr);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

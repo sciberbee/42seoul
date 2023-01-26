@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 18:14:10 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 17:17:05 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/11 10:52:58 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/17 13:08:49 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-int	*ft_range(int min, int max);
+void	ft_putchar(char c);
 
-int	*ft_range(int min, int max)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	*arr;
-
-	if (min >= max)
-		return (0);
-	arr = malloc(sizeof(*arr) * (max - min));
-	i = 0;
-	while (i < (max - min))
-	{
-		arr[i] = min + i;
-		i++;
-	}
-	return (arr);
+	write(1, &c, 1);
 }

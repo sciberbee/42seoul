@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:59:28 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/23 19:04:27 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/26 17:43:20 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
 int		ft_validate_base(const char *base);
+char	*ft_zero_string(char *base_to);
 
 int	ft_char_idx_in_base(char ch, const char *base)
 {
@@ -46,7 +47,7 @@ long long	ft_make_result(char *nbr, char *base, int base_len)
 	return (result);
 }
 
-char	*ft_putnbr_base(long long lnb, char *base, int base_len)
+char	*ft_putnbr_base(long long lnb, char *base, int base_len, int sign)
 {
 	int			i;
 	int			j;
@@ -70,6 +71,8 @@ char	*ft_putnbr_base(long long lnb, char *base, int base_len)
 		i--;
 	}
 	string[j] = '\0';
+	if (sign == 1)
+		string++;
 	return (string);
 }
 
@@ -96,8 +99,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		p_nbr++;
 	}
 	lnb = ft_make_result(p_nbr, base_from, base_len[0]);
-	string = ft_putnbr_base(lnb, base_to, base_len[1]);
-	if (sign == 1)
-		string++;
+	if (lnb == 0)
+		return (ft_zero_string(base_to));
+	string = ft_putnbr_base(lnb, base_to, base_len[1], sign);
 	return (string);
 }

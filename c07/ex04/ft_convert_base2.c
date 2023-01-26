@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:56:42 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/23 18:57:04 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/26 17:41:36 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ int	ft_validate_base(const char *base)
 		base_len++;
 	}
 	return (base_len);
+}
+
+char	*ft_zero_string(char *base_to)
+{
+	char	*zero_str;
+
+	zero_str = malloc(sizeof(*zero_str) * 2);
+	zero_str[0] = base_to[0];
+	zero_str[1] = '\0';
+	return (zero_str);
 }
