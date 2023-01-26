@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:14:00 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 12:42:25 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/26 22:17:08 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	char		*copy_str;
 	int			i;
 
-	tab = malloc(sizeof (*t_stock_str) * (ac + 1));
+	tab = malloc(sizeof (*tab) * (ac + 1));
 	if (!tab)
 		return (0);
 	i = 0;

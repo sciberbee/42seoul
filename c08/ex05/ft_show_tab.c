@@ -6,11 +6,13 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:42:52 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 12:53:06 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/26 22:17:41 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_show_tab(struct s_stock_str *par);
 
 void	ft_putstr_lf(char *str)
 {
@@ -19,7 +21,7 @@ void	ft_putstr_lf(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	write(1, str, idx);
+	write(1, str, i);
 	write(1, "\n", 1);
 }
 
@@ -44,8 +46,6 @@ void	ft_putnbr_lf(int nb)
 	write(1, "\n", 1);
 }
 
-void	ft_show_tab(struct s_stock_str *par);
-
 void	ft_show_tab(struct s_stock_str *par)
 {
 	int	len;
@@ -60,5 +60,6 @@ void	ft_show_tab(struct s_stock_str *par)
 		ft_putstr_lf(par[i].str);
 		ft_putnbr_lf(par[i].size);
 		ft_putstr_lf(par[i].copy);
+		i++;
 	}
 }
