@@ -6,9 +6,11 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:56:42 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 17:41:36 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/27 10:47:23 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int	ft_validate_base(const char *base)
 {

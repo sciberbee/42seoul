@@ -6,11 +6,12 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:42:52 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 22:17:41 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/27 21:08:47 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_stock_str.h"
 
 void	ft_show_tab(struct s_stock_str *par);
 

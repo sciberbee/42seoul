@@ -6,12 +6,14 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:14:00 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 22:17:08 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/27 20:43:22 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_stock_str.h"
+
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
 
 int	ft_strlen(char *str)
 {
@@ -40,8 +42,6 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
-struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
