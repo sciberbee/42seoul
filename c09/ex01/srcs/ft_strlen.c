@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:42:49 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/28 17:48:12 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/14 17:24:15 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/14 17:25:16 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_strlen(char *str);
 
-void	ft_putstr_non_printable(char *str);
-
-void	ft_putstr_non_printable(char *str)
+int	ft_strlen(char *str)
 {
-	char	hex_string[3];
+	int	idx;
 
-	hex_string[0] = '\\';
-	while (*str)
+	idx = 0;
+	while (*(str + idx) != '\0')
 	{
-		if ((*str) < 32 || (*str) == 127)
-		{
-			hex_string[1] = "0123456789abcdef"[(unsigned char)(*str) / 16];
-			hex_string[2] = "0123456789abcdef"[(unsigned char)(*str) % 16];
-			write(1, hex_string, 3);
-		}
-		else
-		{
-			write(1, str, 1);
-		}
+		idx++;
 	}
-	return ;
+	return (idx);
 }

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 12:13:44 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/28 10:59:16 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/14 16:55:33 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/14 16:56:30 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+void	ft_swap(int *a, int *b);
 
-# include <unistd.h>
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
 
-# define EVEN(x) (x % 2 == 0)
-# define TRUE 1
-# define FALSE 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define SUCCESS 0
-
-typedef int	t_bool;
-
-#endif
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}

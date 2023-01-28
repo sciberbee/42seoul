@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 14:42:49 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/28 17:48:12 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/17 18:38:34 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/19 15:26:44 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_strcmp(char *s1, char *s2);
 
-void	ft_putstr_non_printable(char *str);
-
-void	ft_putstr_non_printable(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	hex_string[3];
-
-	hex_string[0] = '\\';
-	while (*str)
+	while (*s1 && (*s1 == *s2))
 	{
-		if ((*str) < 32 || (*str) == 127)
-		{
-			hex_string[1] = "0123456789abcdef"[(unsigned char)(*str) / 16];
-			hex_string[2] = "0123456789abcdef"[(unsigned char)(*str) % 16];
-			write(1, hex_string, 3);
-		}
-		else
-		{
-			write(1, str, 1);
-		}
+		s1++;
+		s2++;
 	}
-	return ;
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
