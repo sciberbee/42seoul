@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:23:51 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/23 15:58:33 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/29 16:23:28 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ char	*ft_strjoin(int size, char **strs, char *sep);
 
 int	ft_strlen(char *str)
 {
-	int	idx;
+	int	i;
 
-	idx = 0;
-	while (*(str + idx) != '\0')
-	{
-		idx++;
-	}
-	return (idx);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 int	ft_strcpy_ex03(char *dest, char *src)
