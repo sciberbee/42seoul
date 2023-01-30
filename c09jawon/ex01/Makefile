@@ -7,7 +7,7 @@ AR = ar
 AFLAGS = rcus
 
 .c.o : 
-$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
 	$(AR) $(AFLAGS) $(NAME) $(OBJECTS)
