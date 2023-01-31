@@ -6,13 +6,13 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:13:38 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 21:56:58 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/30 22:11:33 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(x) ((x < 0) ? (-x) : (x))
+# define ABS(x) (((x >= 0) * 2) - 1) * x
 
 #endif
