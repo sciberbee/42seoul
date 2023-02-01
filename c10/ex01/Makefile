@@ -3,10 +3,10 @@ SRCS = ./ft_cat.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+all: $(NAME)
+
 $(NAME): $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
-
-all: $(NAME)
 
 clean:
 

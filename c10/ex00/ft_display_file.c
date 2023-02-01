@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 12:26:29 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/30 15:23:07 by sebang           ###   ########.fr       */
+/*   Updated: 2023/02/01 12:07:13 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_display(char *path)
 		return ;
 	}
 	size = read(fd, buf, 1024);
-	while (size)
+	while (size > 0)
 	{
 		write(1, buf, size);
 		size = read(fd, buf, 1024);

@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 19:52:04 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/31 21:17:04 by sebang           ###   ########.fr       */
+/*   Created: 2023/02/01 13:54:11 by sebang            #+#    #+#             */
+/*   Updated: 2023/02/01 13:54:41 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str);
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-int	ft_atoi(char *str)
+typedef struct s_list
 {
-	long long	result;
-	int			sign;
+	struct s_list	*next;
+	void			*data;
+}	t_list;
 
-	result = 0;
-	sign = 1;
-	while (((*str) >= 9 && (*str) <= 13) || (*str) == 32)
-	{
-		str++;
-	}
-	while ((*str) == '+' || (*str) == '-')
-	{
-		if ((*str) == '-')
-		{
-			sign *= -1;
-		}
-		str++;
-	}
-	while ((*str) >= '0' && (*str) <= '9')
-	{
-		result *= 10;
-		result += (*str) - '0';
-		str++;
-	}
-	return ((int)(sign * result));
-}
+#endif

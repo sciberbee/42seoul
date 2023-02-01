@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calculator.c                                    :+:      :+:    :+:   */
+/*   ft_do-op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:26:48 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/30 20:54:54 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/31 15:59:45 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,40 @@ int		mod(int x, int y);
 int		ft_atoi(char *str);
 void	ft_putnbr(int nb);
 
-int	check_ifnum(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	check_arg(int argc, char **argv)
 {
 	if (argc != 4)
 		return (-2);
-	if (!check_ifnum(argv[1]))
-		return (-2);
-	if (!check_ifnum(argv[3]))
-		return (-2);
 	if (argv[2][1] != '\0')
 		return (-1);
-	if (argv[2][0] != '+')
+	if (argv[2][0] == '+')
 		return (0);
-	else if (argv[2][0] != '-')
+	else if (argv[2][0] == '-')
 		return (1);
-	else if (argv[2][0] != '*')
+	else if (argv[2][0] == '*')
 		return (2);
-	else if (argv[2][0] != '/')
+	else if (argv[2][0] == '/')
 		return (3);
-	else if (argv[2][0] != '%')
+	else if (argv[2][0] == '%')
 		return (4);
 	return (-1);
 }
 
-#include <stdio.h>
+int	chk_divzero(int op, int y)
+{
+	if (op == 3 && y == 0)
+	{
+		write(1, "Stop : division by zero\n", 24);
+		return (-1);
+	}
+	if (op == 4 && y == 0)
+	{
+		write(1, "Stop : modulo by zero\n", 22);
+		return (-1);
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int	op;
@@ -80,10 +76,9 @@ int	main(int argc, char **argv)
 	f[4] = mod;
 	x = ft_atoi(argv[1]);
 	y = ft_atoi(argv[3]);
-	printf("%d, %d, %d", x, y, op);
+	if (chk_divzero(op, y) == -1)
+		return (0);
 	ft_putnbr(f[op](x, y));
 	write(1, "\n", 1);
 	return (0);
-	//디버깅 해서 왜 연산자 해석 못하는지 보기
-	//division, modulo by zero 에러 잡기
 }

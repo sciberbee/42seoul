@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_thous.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seunlee2 <seunlee2@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 23:03:39 by seunlee2          #+#    #+#             */
-/*   Updated: 2023/01/29 23:12:00 by seunlee2         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:23:38 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ char	**ft_get_thous(char *dict, int start, int len)
 				cnt = ft_get_len(dict, &start, idx);
 				if (cnt >= 3 && cnt % 3 == 0 && cnt <= 37)
 					thous[cnt / 3] = ft_get_thous_arr(dict, &start, idx);
-				start = idx + 1;
 			}
+			start = idx + 1;
 		}
 		idx++;
 	}

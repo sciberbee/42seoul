@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 19:52:04 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/31 21:17:04 by sebang           ###   ########.fr       */
+/*   Created: 2023/01/31 15:35:13 by sebang            #+#    #+#             */
+/*   Updated: 2023/01/31 15:36:20 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str);
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *));
 
-int	ft_atoi(char *str)
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	long long	result;
-	int			sign;
+	int		i;
+	int		j;
+	int		n;
+	char	*temp;
 
-	result = 0;
-	sign = 1;
-	while (((*str) >= 9 && (*str) <= 13) || (*str) == 32)
+	n = 0;
+	while (tab[n])
+		n++;
+	n--;
+	i = 0;
+	while (i <= n - 1)
 	{
-		str++;
-	}
-	while ((*str) == '+' || (*str) == '-')
-	{
-		if ((*str) == '-')
+		j = 0;
+		while (j <= n - 1 - i)
 		{
-			sign *= -1;
+			if (cmp(tab[j], tab[j + 1]) > 0)
+			{
+				temp = tab[j];
+				tab[j] = tab[j + 1];
+				tab[j + 1] = temp;
+			}
+			j++;
 		}
-		str++;
+		i++;
 	}
-	while ((*str) >= '0' && (*str) <= '9')
-	{
-		result *= 10;
-		result += (*str) - '0';
-		str++;
-	}
-	return ((int)(sign * result));
 }

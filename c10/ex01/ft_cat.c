@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:14:47 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/30 15:29:47 by sebang           ###   ########.fr       */
+/*   Updated: 2023/02/01 12:19:34 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,33 @@ void	ft_cat_open(char *path)
 	return ;
 }
 
+void	ft_cat_stdin(void)
+{
+	char	buf[1];
+	char	*str;
+
+	while (read(0, buf, 1) != 0)
+	{
+		if (errno == 0)
+			write(1, buf, 1);
+		else
+		{
+			write(2, "cat: ", 5);
+			write(2, "stdin: ", 7);
+			str = strerror(errno);
+			write(2, str, ft_strlen(str));
+			write(2, "\n", 1);
+		}
+	}
+	return ;
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 
 	if (argc == 1)
-		write(1, "File name missing.\n", 19);
+		ft_cat_stdin();
 	else
 	{
 		i = 1;

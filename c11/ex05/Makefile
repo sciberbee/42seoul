@@ -1,5 +1,5 @@
-NAME = ft_display_file
-SRCS = ./ft_display_file.c
+NAME = do-op
+SRCS = ./ft_atoi.c ./ft_do-op.c ./ft_ops.c ./ft_putnbr.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 

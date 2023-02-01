@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 20:19:39 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/26 21:26:56 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/31 22:32:24 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,6 @@ int	ft_validate_base_putnbr(const char *base)
 	return (base_len);
 }
 
-void	ft_put_zero(char *base)
-{
-	char	*zero_str;
-
-	zero_str = malloc(sizeof(*zero_str) * 2);
-	zero_str[0] = base[0];
-	zero_str[1] = '\0';
-	write(1, zero_str, 2);
-}
-
 void	ft_putnbr_base(int nbr, char *base)
 {
 	long long	lnb;
@@ -65,7 +55,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (!base_len)
 		return ;
 	if (nbr == 0)
-		ft_put_zero(base);
+		write(1, base, 1);
 	lnb = nbr;
 	if (lnb < 0)
 	{

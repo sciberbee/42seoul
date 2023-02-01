@@ -6,7 +6,7 @@
 /*   By: sebang <sebang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 22:11:32 by sebang            #+#    #+#             */
-/*   Updated: 2023/01/18 22:55:04 by sebang           ###   ########.fr       */
+/*   Updated: 2023/01/31 23:17:25 by sebang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ int	ft_validate_base_atoi(const char *base)
 	base_len = 0;
 	i = 0;
 	while (i < 256)
-	{
 		ascii_table[i++] = 0;
-	}
 	while (*base)
 	{
-		if ((*base) == '+' || (*base) == '-')
+		if ((*base) == '+' || (*base) == '-' || (*base) == ' '
+			|| ((*base) >= 9 && (*base) <= 13))
 			return (0);
 		if (ascii_table[(int)(*base)] == 1)
 			return (0);
